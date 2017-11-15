@@ -29,6 +29,27 @@ class LinkedListWithHead
         head = newNode; // make new node as the head.
     }
 
+    //Add node at the end of the list.
+    public void addToEnd(int element)
+    {
+        //If the list is empty head will be the first and last element. 
+        if(isEmpty())
+        {
+            head = new Node1(element);
+            return;
+        }
+
+        Node1 i,j;
+
+        //traverse to the end of the list. 
+        for(i = head; (j = i.getNext()) != null; i = j); 
+
+        
+        Node1 newNode = new Node1(element); //Make a new node.
+        i.setNext(newNode); // Point the last node to the new node.
+
+    }
+
     public void displayList()
     {
         Node1 current = head;
@@ -41,12 +62,15 @@ class LinkedListWithHead
     }
 }//End of class LinkedListWithHead
 
+
+//Entry Point
 class SinglyLinkedListWithHead
 {
     public static void main(String[] args)
     {
         LinkedListWithHead list = new LinkedListWithHead();
         list.addToStart(3);
+        list.addToEnd(4);
         list.displayList();;
     }
 }
