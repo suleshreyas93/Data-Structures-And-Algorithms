@@ -33,6 +33,7 @@ class SortStrings
 
     public int partition(String[] A, int start, int end)
     {
+        System.out.println();
         String pivot = A[end];
         int pIndex = start;
 

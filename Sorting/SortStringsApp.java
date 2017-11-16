@@ -27,6 +27,7 @@ class SortStringsApp
         sort.display();
 
         System.out.println();
+        System.out.println();
 
         System.out.print("Array after sorting : ");
         sort.quickSort();
