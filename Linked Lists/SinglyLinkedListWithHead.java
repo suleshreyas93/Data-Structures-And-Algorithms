@@ -17,16 +17,19 @@ class LinkedListWithHead
     //Add node at the beginning of linked list
     public void addToStart(int element)
     {
+        
         //if the list is empty make head as the new node.
         if(isEmpty())
         {
             head = new Node1(element);
+            size++;
             return;
         }
 
         Node1 newNode = new Node1(element); //Make a new node.
         newNode.setNext(newNode); // Point it to the current head node.
         head = newNode; // make new node as the head.
+        size++;
     }
 
     //Add node at the end of the list.
@@ -36,6 +39,7 @@ class LinkedListWithHead
         if(isEmpty())
         {
             head = new Node1(element);
+            size++;
             return;
         }
 
@@ -47,6 +51,56 @@ class LinkedListWithHead
         
         Node1 newNode = new Node1(element); //Make a new node.
         i.setNext(newNode); // Point the last node to the new node.
+        size++;
+    }
+
+    public void addElement(int element, int position)
+    {
+        if(isEmpty())
+        {
+            addToStart(element);
+            return;
+        }
+
+
+        if(position == 0)
+        {
+            addToStart(element);
+            return;
+            
+        }
+
+        if(position < 0)
+        {
+            position = 0;
+        }
+
+        else if(position >= size)
+        {
+            addToEnd(element);
+            
+        }
+        else
+        {
+            System.out.println("Position = "+position);
+            Node1 temp = head;
+            for(int i = 0; i < position; i++)
+            {
+                temp = temp.getNext();
+            }
+
+            Node1 newNode = new Node1(element);
+            System.out.println("Head's Next = "+temp.getNext().getData());
+            newNode.setNext(temp.getNext());
+            temp.setNext(newNode);
+            
+            size++;
+        }
+
+        
+            
+        
+
 
     }
 
@@ -71,6 +125,7 @@ class SinglyLinkedListWithHead
         LinkedListWithHead list = new LinkedListWithHead();
         list.addToStart(3);
         list.addToEnd(4);
+        list.addElement(2, 0);
         list.displayList();;
     }
 }
