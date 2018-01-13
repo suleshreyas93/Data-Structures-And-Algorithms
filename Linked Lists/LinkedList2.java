@@ -100,6 +100,27 @@ class DeleteNodes
         return head;
     }
 
+    public Node removeLast()
+    {
+        if(isEmpty())
+        {
+            return null;
+        }
+
+        Node current = head;
+        Node previous = null;
+        Node temp = head.getNextNode();
+
+        while((temp = current.getNextNode()) != null)
+        {
+            previous = current;
+            current = temp;
+        }
+
+        previous.setNextNode(null);
+        return current;
+    }
+
     public void displayList()
     {
         Node temp = head;
@@ -120,8 +141,10 @@ class LinkedList2
         nodes.add(2, 1);
         nodes.add(3, 2);
 
-        Node remove1 = nodes.removeFirst();
-        System.out.println("Removed Node = "+remove1.getData());
+        // Node remove1 = nodes.removeFirst();
+        // System.out.println("Removed Node = "+remove1.getData());
+        Node remove2 = nodes.removeLast();
+        System.out.println("Removed Node = "+remove2.getData());
         nodes.displayList();
     }
 }
