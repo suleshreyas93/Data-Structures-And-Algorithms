@@ -1,4 +1,4 @@
-import javax.net.ssl.ExtendedSSLSession;
+
 
 class Node
 {
@@ -94,10 +94,10 @@ class DeleteNodes
 
         Node temp = head;
         head = temp.getNextNode();
-        temp = null;
+        //temp = null;
 
         length--;
-        return head;
+        return temp;
     }
 
     public Node removeLast()
@@ -119,6 +119,50 @@ class DeleteNodes
 
         previous.setNextNode(null);
         return current;
+    }
+
+    public Node remove(int position)
+    {
+        //fix the position
+        if(position < 0)
+        {
+            position = 0;
+        }
+
+        if(position > length)
+        {
+            position = length;
+        }
+
+        if(isEmpty())
+        {
+            return null;
+        }
+
+        else if(position == 0)
+        {
+            Node temp = head;
+            head = temp.getNextNode();
+            //temp = null;
+            length--;
+            return temp;
+        }
+
+        else
+        {
+            Node temp = head;
+            for(int i = 1; i < position; i++)
+            {
+                temp = temp.getNextNode();
+            }
+
+            Node removed = temp.getNextNode();
+            temp.setNextNode(temp.getNextNode().getNextNode());
+            length--;
+            return removed;
+        }
+        
+        
     }
 
     public void displayList()
@@ -143,8 +187,10 @@ class LinkedList2
 
         // Node remove1 = nodes.removeFirst();
         // System.out.println("Removed Node = "+remove1.getData());
-        Node remove2 = nodes.removeLast();
-        System.out.println("Removed Node = "+remove2.getData());
+        // Node remove2 = nodes.removeLast();
+        // System.out.println("Removed Node = "+remove2.getData());
+        Node remove3 = nodes.remove(1);
+        System.out.println("Removed Node = "+remove3.getData());
         nodes.displayList();
     }
 }
