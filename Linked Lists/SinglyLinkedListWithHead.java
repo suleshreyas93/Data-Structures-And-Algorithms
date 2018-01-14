@@ -33,3 +33,65 @@ class ListNode
  * methods such as addFirst, addLast, addAtPosition, removeFirst, removeLast, removeAtPosition
  * and getSize.
  */
+
+class LinkedList
+{
+    private ListNode head;
+    private int size;
+
+    public LinkedList()
+    {
+        head = null;
+        size = 0;
+    }
+
+    public boolean isEmpty()
+    {
+        if(head != null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public void addFirst(int element)
+    {
+        if(isEmpty())
+        {
+            head = new ListNode(element);
+
+        }
+        else
+        {
+            ListNode newNode = new ListNode(element);//make a new node
+            newNode.setNextNode(head);//point to current head
+            head = newNode;//Make new node as the head;
+        }
+        size++;
+    }
+
+    public void displayList()
+    {
+        ListNode temp = head;
+        while(temp != null)
+        {
+            System.out.print("{"+temp.getData()+"} --> ");
+            temp = temp.getNextNode();
+        }
+    }
+
+}//End of class LinkedList
+
+class SinglyLinkedListWithHead
+{
+    public static void main(String[] args)
+    {
+        LinkedList list = new LinkedList();
+
+        list.addFirst(3);
+        list.displayList();
+    }
+}
