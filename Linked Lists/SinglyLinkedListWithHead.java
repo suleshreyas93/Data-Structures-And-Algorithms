@@ -73,6 +73,23 @@ class LinkedList
         size++;
     }
 
+    public void addLast(int element)
+    {
+        if(isEmpty())
+        {
+            head = new ListNode(element);
+        }
+        else
+        {
+            ListNode p,q;
+            for(p = head; (q = p.getNextNode()) !=null; p=q);//traverse to the end of the list.
+            ListNode newNode = new ListNode(element);//Make new node.
+            p.setNextNode(newNode);//make current last node point to the new node. So now new node is the last node.
+
+        }
+        size++;
+    }
+
     public int getSize()
     {
         ListNode temp = head;
@@ -104,8 +121,9 @@ class SinglyLinkedListWithHead
         LinkedList list = new LinkedList();
 
         list.addFirst(3);
+        list.addLast(4);
         list.displayList();
         System.out.println("\nLength = "+list.getSize());
-        
+
     }
 }
