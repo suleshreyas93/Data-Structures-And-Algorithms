@@ -1,3 +1,5 @@
+import javax.net.ssl.ExtendedSSLSession;
+
 /**
  * ListNode class contains the individual nodes with data and pointers to next node.
  */
@@ -90,6 +92,46 @@ class LinkedList
         size++;
     }
 
+    public void addAtPosition(int element, int position)
+    {
+        //fix the position
+        if(position < 0)
+        {
+            position = 0;
+        }
+
+        if(position > size)
+        {
+            position = size;
+        }
+
+        if(isEmpty())
+        {
+            head = new ListNode(element);
+        }
+
+        else if(position == 0)
+        {
+            ListNode newNode = new ListNode(element);//Make new node;
+            newNode.setNextNode(head);//Point it to the current head node;
+            head = newNode;//Make new node as the head;
+        }
+
+        else
+        {
+            ListNode temp = head;
+            for(int i = 1; i < position; i++)
+            {
+                temp = temp.getNextNode();
+            }
+
+            ListNode newNode = new ListNode(element);//Make new node;
+            newNode.setNextNode(temp.getNextNode());
+            temp.setNextNode(newNode);
+        }
+        size++;
+    }
+
     public int getSize()
     {
         ListNode temp = head;
@@ -122,6 +164,9 @@ class SinglyLinkedListWithHead
 
         list.addFirst(3);
         list.addLast(4);
+        list.addAtPosition(2, 0);
+        list.addFirst(1);
+        list.addAtPosition(5, 5);
         list.displayList();
         System.out.println("\nLength = "+list.getSize());
 
