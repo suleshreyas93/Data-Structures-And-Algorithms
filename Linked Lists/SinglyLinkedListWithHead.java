@@ -146,6 +146,28 @@ class LinkedList
 
     }
 
+    public ListNode removeLast()
+    {
+        if(isEmpty())
+        {
+            return null;
+        }
+
+        ListNode current = head;
+        ListNode previous = null;
+        ListNode temp = head.getNextNode();
+
+        while((temp = current.getNextNode())!= null)
+        {
+            previous = current;
+            current = temp;
+        }
+
+        previous.setNextNode(null);
+        size--;
+        return current;
+    }
+
     public int getSize()
     {
         ListNode temp = head;
@@ -184,6 +206,9 @@ class SinglyLinkedListWithHead
 
         ListNode first = list.removeFirst();
         System.out.println("Removed Node = "+first.getData());
+        list.displayList();
+        ListNode last = list.removeLast();
+        System.out.println("Removed Node = "+last.getData());
         list.displayList();
         System.out.println("\nLength = "+list.getSize());
 
