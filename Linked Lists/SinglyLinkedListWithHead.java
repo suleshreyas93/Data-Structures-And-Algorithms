@@ -106,5 +106,6 @@ class SinglyLinkedListWithHead
         list.addFirst(3);
         list.displayList();
         System.out.println("\nLength = "+list.getSize());
+        
     }
 }
