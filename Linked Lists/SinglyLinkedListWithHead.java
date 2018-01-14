@@ -132,6 +132,20 @@ class LinkedList
         size++;
     }
 
+    public ListNode removeFirst()
+    {
+        if(isEmpty())
+        {
+            return null;
+        }
+        
+        ListNode temp = head; //Make temp point to the current head. Head now has two pointers;
+        head = temp.getNextNode();//Make head point to the node next to it;Now head is actually the second node.
+        size--;
+        return temp;
+
+    }
+
     public int getSize()
     {
         ListNode temp = head;
@@ -167,6 +181,9 @@ class SinglyLinkedListWithHead
         list.addAtPosition(2, 0);
         list.addFirst(1);
         list.addAtPosition(5, 5);
+
+        ListNode first = list.removeFirst();
+        System.out.println("Removed Node = "+first.getData());
         list.displayList();
         System.out.println("\nLength = "+list.getSize());
 
