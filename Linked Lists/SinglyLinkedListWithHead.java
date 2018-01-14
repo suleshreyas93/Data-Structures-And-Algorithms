@@ -168,6 +168,46 @@ class LinkedList
         return current;
     }
 
+    public ListNode removeAtPosition(int position)
+    {
+        //fix the position
+        if(position < 0)
+        {
+            position = 0;
+        }
+
+        if(position > size)
+        {
+            position = size;
+        }
+
+        if(isEmpty())
+        {
+            return null;
+        }
+
+        else if(position == 0)
+        {
+            ListNode temp = head;
+            head = temp.getNextNode();
+            return temp;
+        }
+
+        else
+        {
+            ListNode temp = head;
+            for(int i = 1; i < position; i++)
+            {
+                temp = temp.getNextNode();
+            }
+
+            ListNode removed = temp.getNextNode();
+            temp.setNextNode(temp.getNextNode().getNextNode());
+            size--;
+            return removed;
+        }
+    }
+
     public int getSize()
     {
         ListNode temp = head;
@@ -204,11 +244,14 @@ class SinglyLinkedListWithHead
         list.addFirst(1);
         list.addAtPosition(5, 5);
 
-        ListNode first = list.removeFirst();
-        System.out.println("Removed Node = "+first.getData());
-        list.displayList();
-        ListNode last = list.removeLast();
-        System.out.println("Removed Node = "+last.getData());
+        // ListNode first = list.removeFirst();
+        // System.out.println("Removed Node = "+first.getData());
+        // list.displayList();
+        // ListNode last = list.removeLast();
+        // System.out.println("\nRemoved Node = "+last.getData());
+
+        ListNode remove = list.removeAtPosition(3);
+        System.out.println("Removed Node = "+remove.getData());
         list.displayList();
         System.out.println("\nLength = "+list.getSize());
 
