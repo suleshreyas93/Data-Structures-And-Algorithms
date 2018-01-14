@@ -73,6 +73,18 @@ class LinkedList
         size++;
     }
 
+    public int getSize()
+    {
+        ListNode temp = head;
+        int count = 0;
+        while(temp != null)
+        {
+            count++;
+            temp = temp.getNextNode();
+        }
+        return count;
+    }
+
     public void displayList()
     {
         ListNode temp = head;
@@ -93,5 +105,6 @@ class SinglyLinkedListWithHead
 
         list.addFirst(3);
         list.displayList();
+        System.out.println("\nLength = "+list.getSize());
     }
 }
