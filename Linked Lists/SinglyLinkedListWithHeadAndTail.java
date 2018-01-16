@@ -63,7 +63,7 @@ class LinkedList
         }
         else
         {
-            return head;
+            return tail;
         }
     }
 
@@ -99,8 +99,64 @@ class LinkedList
             p.setNextNode(newNode);
             tail = newNode;
         }
+        size++;
     }
 
+    public void addElement(int element, int position)
+    {
+        //fix the position
+        if(position < 0)
+        {
+            addFirst(element);
+            return;
+        }
+
+        if(position > size)
+        {
+            addLast(element);
+            return;
+        }
+
+        if(isEmpty())
+        {
+            head = new Node(element);
+            tail = head;
+            
+        }
+
+        else if(position == 0)
+        {
+            addFirst(element);
+        }
+
+        else
+        {
+            Node temp = head;
+            for(int i = 1; i < position; i++)
+            {
+                temp = temp.getNextNode();
+            }
+
+            Node newNode = new Node(element);
+            newNode.setNextNode(temp.getNextNode());
+            temp.setNextNode(newNode);
+        }
+        size++;
+    }
+
+    public int getSize()
+    {
+        Node temp = head;
+        int count = 0;
+
+        while(temp != null)
+        {
+            count++;
+            temp = temp.getNextNode();
+        }
+
+        return count;
+    }
     public void displayList()
     {
         Node temp = head;
@@ -119,7 +175,15 @@ class SinglyLinkedListWithHeadAndTail
         LinkedList list = new LinkedList();
         list.addFirst(1);
         list.addFirst(2);
+        list.addLast(3);
+        list.addElement(4, 10);
 
         list.displayList();
+        Node head = list.getHead();
+        System.out.println("\nHead = "+head.getData());
+        Node tail = list.getTail();
+        System.out.println("Tail = "+tail.getData());
+        int size = list.getSize();
+        System.out.println("Size = "+list.getSize());
     }
 }
