@@ -58,4 +58,26 @@ class LinkedList
         }
         size++;
     }
+
+    public void displayList()
+    {
+        Node temp = head;
+        while(temp != null)
+        {
+            System.out.print("["+temp.getData()+"] -- > ");
+            temp = temp.getNextNode();
+        }
+    }
+}
+
+class SinglyLinkedListWithHeadAndTail
+{
+    public static void main(String[] args)
+    {
+        LinkedList list = new LinkedList();
+        list.addFirst(1);
+        list.addFirst(2);
+
+        list.displayList();
+    }
 }
