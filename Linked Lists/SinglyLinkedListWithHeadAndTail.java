@@ -43,6 +43,30 @@ class LinkedList
         return (head == null);
     }
 
+    public Node getHead()
+    {
+        if(isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return head;
+        }
+    }
+
+    public Node getTail()
+    {
+        if(isEmpty())
+        {
+            return null;
+        }
+        else
+        {
+            return head;
+        }
+    }
+
     public void addFirst(int element)
     {
         if(isEmpty())
@@ -57,6 +81,24 @@ class LinkedList
             head = newNode;//make new node as the head node;
         }
         size++;
+    }
+
+    public void addLast(int element)
+    {
+        if(isEmpty())
+        {
+            head = new Node(element);
+            tail = head;
+        }
+        else
+        {
+            Node p,q;
+            for(p = head; (q = p.getNextNode())!=null; p=q);
+
+            Node newNode = new Node(element);
+            p.setNextNode(newNode);
+            tail = newNode;
+        }
     }
 
     public void displayList()
