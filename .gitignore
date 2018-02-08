@@ -1,22 +1,4 @@
-Node1.class
-LinkedListWithHead.class
-SinglyLinkedListWithHead.class
-DiagonalElements.class
-MaxElement.class
-MinMaxElement.class
-ReverseString.class
-/Searching/LinearSearch.class
-/Linked Lists/ListNode.class
-/Linked Lists/AddNodes.class
-/Linked Lists/LinkedList1.class
-/Linked Lists/Node.class
-/Linked Lists/DeleteNodes.class
-/Linked Lists/LinkedList2.class
-/Linked Lists/LinkedList.class
-/Linked Lists/SinglyLinkedListWithHead.class
-/Linked Lists/ListNode.class
-/Linked Lists/LinkedList.class
-/Linked Lists/SinglyLinkedListWithHeadAndTail.class
-ReverseNumber.class
-Transpose.class
-MostFrequentDigit.class
+/Sorting/*.class
+/Linked Lists/*.class
+/Searching/*.class
+*.class
