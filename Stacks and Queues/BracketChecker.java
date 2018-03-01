@@ -37,11 +37,13 @@ class BracketChecker
                 }
             }
 
-            if(!ds.isEmpty())
+            
+        }
+
+        if(!ds.isEmpty())
             {
                 System.out.println("Missing right delimiter");
             }
             System.out.println("Parsing Successfull.");
-        }
     }
 }
