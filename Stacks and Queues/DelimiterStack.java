@@ -37,5 +37,4 @@ class DelimiterStack
     {
         return stack[top];
     }
-    
 }
