@@ -1,10 +1,10 @@
-class Stack1
+class InToPostStack
 {
     private int maxSize;
     private char[] arr;
     private int top;
 
-    public Stack1(int size)
+    public InToPostStack(int size)
     {
         maxSize = size;
         arr = new char[maxSize];
@@ -44,7 +44,7 @@ class Stack1
         else
         {
             top++;
-            arr[top] = element;
+            arr[top] = op;
         }
         
     }
